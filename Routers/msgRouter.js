@@ -5,7 +5,9 @@ const msgBL = require('../BLs/msgBL')
 router.route('/:id')
     .get( async function(req,resp)
     {
+        console.log('route - get')
         let msg = await msgBL.getNextMsg(req.params.id)
+        console.log(msg)
         return resp.json(msg);
     })
 

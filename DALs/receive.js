@@ -19,9 +19,8 @@ const getMsg = function(q_id)
             console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", q_id);
     
             channel.consume(q_id, function(msg) {
-               return msg.content;
-            }, {
-                noAck: true
+                console.log(msg.content.toString())
+               channel.ack(msg)
             });
         });
     });

@@ -24,7 +24,7 @@ const sendMsg = function (q_id, msg)
     setTimeout(function() {
         connection.close();
         process.exit(0);
-    }, 500);
+    }, 1000);
 });
 }
 

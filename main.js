@@ -13,6 +13,6 @@ app.use('/api',msgRouter)
 let port = process.env.port
 if(port == null || port == "")
 {
-    port = 5672
+    port = 15672
 }
 app.listen(port)

@@ -3,6 +3,7 @@ const rcvMsgDAL = require('../DALs/receive');
 
 const getNextMsg = function(id)
 {
+    console.log('getNextMsg')
     return new Promise((resolve, reject) =>
     {
         rcvMsgDAL.getMsg(id,function(err,msg)
@@ -31,7 +32,7 @@ const addMsg = function(id, obj)
             }
             else
             {
-                resolve('OK')
+                resolve(msg)
             }
         })
     })

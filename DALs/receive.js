@@ -11,16 +11,15 @@ const getMsg = function(q_id)
             if (error1) {
                 throw error1;
             }
-    
-            channel.assertQueue(q_id, {
-                durable: false
-            });
+      
+            channel.assertQueue(q_id, {durable: false});
     
             console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", q_id);
-    
-            channel.consume(q_id, function(msg) {
+            
+            channel.consume(q_id, function(msg) 
+            {
                 console.log(msg.content.toString())
-               channel.ack(msg)
+                channel.ack(msg)
             });
         });
     });

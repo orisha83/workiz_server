@@ -1,7 +1,5 @@
 var amqp = require('amqplib/callback_api');
 
-
-
 const sendMsg = function (q_id, msg)
 {
   console.log('sendMsg')
@@ -14,18 +12,17 @@ const sendMsg = function (q_id, msg)
             throw error1;
         }
 
-        channel.assertQueue(q_id, {
-            durable: false
-        });
+        channel.assertQueue(q_id, {durable: false});
         channel.sendToQueue(q_id, Buffer.from(msg.msg));
 
         console.log(" [x] Sent %s", msg);
+        
     });
     setTimeout(function() {
         connection.close();
-        process.exit(0);
+        //process.exit(0);
     }, 1000);
-});
+  });
 }
 
 
